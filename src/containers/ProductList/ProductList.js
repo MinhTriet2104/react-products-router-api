@@ -1,8 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import ProductItem from "../../components/ProductItem/ProductItem";
 
-function ProductList() {
+function ProductList({ products }) {
   return (
     <table className="table">
       <thead>
@@ -16,12 +17,23 @@ function ProductList() {
         </tr>
       </thead>
       <tbody>
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
+        {products.map(({ id, name, price, status }, index) => (
+          <ProductItem
+            key={index}
+            stt={index}
+            id={id}
+            name={name}
+            price={price}
+            status={status}
+          />
+        ))}
       </tbody>
     </table>
   );
 }
 
-export default ProductList;
+const mapStateToProps = (state) => ({
+  products: state.products,
+});
+
+export default connect(mapStateToProps, null)(ProductList);
