@@ -1,6 +1,6 @@
 import React from "react";
 
-import ProductItem from "../ProductItem/ProductItem";
+import ProductItem from "../../components/ProductItem/ProductItem";
 
 function ProductList() {
   return (
