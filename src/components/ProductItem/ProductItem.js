@@ -3,7 +3,7 @@ import React from "react";
 function ProductItem({ stt, name, id, price, status }) {
   return (
     <tr>
-      <td>{stt}</td>
+      <td>{stt + 1}</td>
       <td>{name}</td>
       <td>{id}</td>
       <td>{price}$</td>

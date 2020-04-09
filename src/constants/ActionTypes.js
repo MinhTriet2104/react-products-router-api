@@ -1,0 +1,2 @@
+// export const REQUEST_FETCH_DATA = "REQUEST_FETCH_DATA";
+export const FETCH_PRODUCTS = "FETCH_PRODUCTS";

@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+
+import { requestFetchData } from "../../actions";
 
 import ProductItem from "../../components/ProductItem/ProductItem";
 
-function ProductList({ products }) {
+function ProductList({ products, fetchAllProducts }) {
+  useEffect(() => {
+    fetchAllProducts();
+  }, [fetchAllProducts]);
+
   return (
     <table className="table">
       <thead>
@@ -36,4 +42,8 @@ const mapStateToProps = (state) => ({
   products: state.products,
 });
 
-export default connect(mapStateToProps, null)(ProductList);
+const mapDispatchToProps = (dispatch) => ({
+  fetchAllProducts: () => dispatch(requestFetchData()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductList);
